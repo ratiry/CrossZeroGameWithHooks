@@ -1,0 +1,14 @@
+.DeclaringResults_container{
+  display:flex;
+  width: 80%;
+  justify-content: space-evenly;
+  align-items:center;
+  p{
+    font-size:50px;
+    color:yellow;
+  }
+  img{
+    width:25%;
+    min-width:100px;
+  }
+}

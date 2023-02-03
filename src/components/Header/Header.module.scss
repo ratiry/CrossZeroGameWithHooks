@@ -1,0 +1,16 @@
+.header{
+  background:lightblue;
+  padding:10px;
+ .logo_container{
+  display:flex;
+  justify-content:space-between;
+  svg,img{
+    height:5vh;
+  }
+  .name{
+    color:yellow;
+    font-weight:bold;
+  }
+ } 
+
+}

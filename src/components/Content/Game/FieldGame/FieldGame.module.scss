@@ -1,0 +1,28 @@
+.GameField{
+  display:grid;
+  grid-template-columns: repeat(3,10vh);
+  height:100%;
+  grid-template-rows:repeat(3,10vh);
+  .Space{
+    background:white;
+    border:5px solid black;
+    display:flex;
+    position:relative;
+    .line{
+      position: absolute;
+      width: 100%;
+      height: 6%;
+      top: 50%;
+      background: red;
+      &.vertical{
+        transform:rotate(90deg);
+      }
+      &.RightDiagonal{
+        transform:rotate(-45deg);
+      }
+      &.LeftDiagonal{
+        transform:rotate(45deg);
+      }
+    }
+  }
+}
