@@ -1,16 +1,14 @@
 
 import { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import classes from './Results.module.scss';
 import DeclaringResults from './Declaring_Results/DeclaringResults';
 import HomeButton from './Buttons/HomeButton';
 import RestartButton from './Buttons/RestartButton';
-import { ReturnToIntialStateAC } from './../../../redux/cells_reducer';
 let Results=(props)=>{
   let [shouldNavigate,setShouldNavigate]=useState(false);
   useEffect(()=>{
-    if(props.result==null){
+    if(true==null){
       setShouldNavigate(true);
     }
   },[])
@@ -21,18 +19,13 @@ let Results=(props)=>{
   return(
     <div  className={classes.Results}>
       <h1>Results</h1>
-      <DeclaringResults result={props.result}/>
+      <DeclaringResults result={'tie'}/>
       <div className={classes.buttonsContainer}>
         <HomeButton />
-        <RestartButton ReturnToIntialStateAC={props.ReturnToIntialStateAC} />
+        <RestartButton  />
       </div>
     </div>
   )
 }
-let mapDispatchToProps={
-  ReturnToIntialStateAC
-};
-let mapStateToProps=(State)=>({
-  result:State.cellsState.result.player
-})
-export default connect(mapStateToProps,mapDispatchToProps)(Results);
+
+export default Results;

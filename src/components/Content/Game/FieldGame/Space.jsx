@@ -17,27 +17,19 @@ let lineCases=[
   <div className={classes.line + ' ' + classes.RightDiagonal}></div>,
   <div className={classes.line + ' ' + classes.LeftDiagonal}></div>
 ]
-let FIll_SPACE_WITH_CROSS=()=>{
-  let IsOccupied =  CheckOccupiedCell(props.id,props.occuppied_Cells);
-  if(!IsOccupied  & !props.result.player){
-    props.PlayersMoveThunk(props.id);
-  }else if(props.whose=='zero' &!props.result.player){
-    props.SWITCH_CROSS_TO_ZERO_AC();
-  }
-}
-if(props.result.player=='zero' || props.result.player=='cross'){
-  if(props.result.winning_consequence.some(id=>id===props.id)){
-    if(props.result.direction==="horizontal"){
-      lineCase=1;
-    }else if(props.result.direction==='vertical'){
-      lineCase=2
-    }else if(props.result.direction==='LeftDiagonal'){
-      lineCase=4;
-    }else{
-      lineCase=3;
-    }
-  }
-}
+// if(props.result.player=='zero' || props.result.player=='cross'){
+//   if(props.result.winning_consequence.some(id=>id===props.id)){
+//     if(props.result.direction==="horizontal"){
+//       lineCase=1;
+//     }else if(props.result.direction==='vertical'){
+//       lineCase=2
+//     }else if(props.result.direction==='LeftDiagonal'){
+//       lineCase=4;
+//     }else{
+//       lineCase=3;
+//     }
+//   }
+// }
   let Case=2;
   if(props.whose=='zero'){
     Case=1;
@@ -45,7 +37,7 @@ if(props.result.player=='zero' || props.result.player=='cross'){
     Case=0;
   }
   return(
-    <div className={classes.Space} onClick={FIll_SPACE_WITH_CROSS}>
+    <div className={classes.Space} onClick={()=>{props.markSpaceWithCross(props.id)}} >
       {Cases[Case]}
       {lineCases[lineCase]}
     </div>
