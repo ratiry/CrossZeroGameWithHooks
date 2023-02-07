@@ -10,6 +10,8 @@ import Results from './components/Content/Results/Results';
 import NotFound from './components/Content/NotFound/NotFound';
 import CheckForVictory from './Helpers/CheckForVictory';
 import markSpaceWithCross from './Helpers/markSpaceWithCross';
+import ZerosCellPick from './Helpers/ZerosCellPick';
+import markSpaceWithZero from './Helpers/markSpaceWithZero';
 let setResul=(tempResult)=>({
   player:tempResult.player,
   winning_consequence:tempResult.winning_consequence,
@@ -36,19 +38,26 @@ function App() {
     result:result,
   }
  
-    
+  
   useEffect(()=>{
-    if(occupiedCells.cross.length>=3){
+    if(occupiedCells.cross.length>=1){
       let tempResult=CheckForVictory(cells,occupiedCells,3);
       console.log(tempResult);
       if(tempResult.player!=null){
         upDateResult(setResul(tempResult));
+      }else{
+        setIsMoveOfZero(true);
       }
-    }else{
-      setIsMoveOfZero(true);
     }
   },[occupiedCells.cross])
-
+  useEffect(()=>{
+    if(IsMoveOfZero){
+      let id=ZerosCellPick(cells,occupiedCells);
+      debugger;
+      markSpaceWithZero(id,upDateCells,updateOccupiedCells);
+      setIsMoveOfZero(false);
+    }
+  },[IsMoveOfZero])
   return (
     <BrowserRouter>
         <div className={classes.App}>
