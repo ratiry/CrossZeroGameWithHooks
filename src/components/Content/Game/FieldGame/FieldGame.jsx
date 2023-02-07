@@ -12,6 +12,11 @@ let GameField=(props)=>{
         }
       }),
     )
+     props.updateOccupiedCells(occupiedCells => {
+      return { ...occupiedCells, 
+        cross: [...occupiedCells.cross,{whose:'cross',id:id}],
+       }
+    });
   }
   let SpaceArray=props.cells.map((S)=>{ return <Space  markSpaceWithCross={markSpaceWithCross} {...props} id={S.id} whose={S.whose} />})
   return(

@@ -24,6 +24,7 @@ function App() {
     direction:null
   })
   window.cells=cells;
+  window.occupiedCells=occupiedCells;
   return (
     <BrowserRouter>
         <div className={classes.App}>
