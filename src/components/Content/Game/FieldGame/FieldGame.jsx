@@ -1,24 +1,8 @@
 import classes from './FieldGame.module.scss';
 import Space from './Space';
-
+import markSpaceWithCross from '../../../../Helpers/markSpaceWithCross';
 let GameField=(props)=>{
-  let markSpaceWithCross=(id)=>{
-    props.upDateCells(Cells=>
-      Cells.map((s)=>{
-        if(s.id==id & s.whose===null){
-          return {...s,whose:'cross'}
-        }else{
-          return s
-        }
-      }),
-    )
-     props.updateOccupiedCells(occupiedCells => {
-      return { ...occupiedCells, 
-        cross: [...occupiedCells.cross,{whose:'cross',id:id}],
-       }
-    });
-  }
-  let SpaceArray=props.cells.map((S)=>{ return <Space  markSpaceWithCross={markSpaceWithCross} {...props} id={S.id} whose={S.whose} />})
+  let SpaceArray=props.cells.map((S)=>{ return <Space  markSpaceWithCross={props.markSpaceWithCross} {...props} id={S.id} whose={S.whose} />})
   return(
  <div className={classes.GameField}>
     {SpaceArray}
