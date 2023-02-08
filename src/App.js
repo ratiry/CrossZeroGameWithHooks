@@ -56,7 +56,7 @@ function App() {
           <div className={classes.Content}>
             <Routes>
               <Route path={'/'} element={<Welcome/>} />
-              <Route path={'/Game' } element={<Game  cells={cells}  upDateCells={upDateCells} updateOccupiedCells={updateOccupiedCells} result={result}/>}/>
+              <Route path={'/Game' } element={<Game  cells={cells} occupiedCells={occupiedCells} upDateCells={upDateCells} updateOccupiedCells={updateOccupiedCells} result={result}/>}/>
               <Route path={'/Results'} element={<Results/>}/>
               <Route path={'*'} element={<NotFound/>} />
             </Routes>

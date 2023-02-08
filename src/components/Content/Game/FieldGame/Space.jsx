@@ -17,19 +17,19 @@ let lineCases=[
   <div className={classes.line + ' ' + classes.RightDiagonal}></div>,
   <div className={classes.line + ' ' + classes.LeftDiagonal}></div>
 ]
-// if(props.result.player=='zero' || props.result.player=='cross'){
-//   if(props.result.winning_consequence.some(id=>id===props.id)){
-//     if(props.result.direction==="horizontal"){
-//       lineCase=1;
-//     }else if(props.result.direction==='vertical'){
-//       lineCase=2
-//     }else if(props.result.direction==='LeftDiagonal'){
-//       lineCase=4;
-//     }else{
-//       lineCase=3;
-//     }
-//   }
-// }
+if(props.result.player=='zero' || props.result.player=='cross'){
+  if(props.result.winning_consequence.some(id=>id===props.id)){
+    if(props.result.direction==="horizontal"){
+      lineCase=1;
+    }else if(props.result.direction==='vertical'){
+      lineCase=2
+    }else if(props.result.direction==='LeftDiagonal'){
+      lineCase=4;
+    }else{
+      lineCase=3;
+    }
+  }
+}
   let Case=2;
   if(props.whose=='zero'){
     Case=1;
