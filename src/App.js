@@ -16,6 +16,7 @@ let setResul=(tempResult)=>({
 })
 function App() {
   let [IsMoveOfZero,setIsMoveOfZero] = useState(false);
+  
   let [cells,upDateCells]=useState([
     {whose:null,id:0},{whose:null,id:1},{whose:null,id:2},
     {whose:null,id:3},{whose:null,id:4},{whose:null,id:5},
@@ -34,9 +35,7 @@ function App() {
     occupiedCells:occupiedCells,
     result:result,
   }
-  useEffect(()=>{
-    
-  },[])
+
   useEffect(()=>{
     if(occupiedCells.cross.length>=3){
       let tempResult=CheckForVictory(cells,occupiedCells,3);
