@@ -61,7 +61,6 @@ function App() {
     if(IsMoveOfZero){
       let id=ZerosCellPick(cells,occupiedCells);
       markSpaceWithZero(id,upDateCells,updateOccupiedCells);
-      debugger;
       setShouldCheckForVictory(true);
       setIsMoveOfZero(false); 
     }
@@ -75,7 +74,7 @@ function App() {
             <Routes>
               <Route path={'/'} element={<Welcome/>} />
               <Route path={'/Game' } element={<Game  cells={cells} occupiedCells={occupiedCells} upDateCells={upDateCells} updateOccupiedCells={updateOccupiedCells} result={result}/>}/>
-              <Route path={'/Results'} element={<Results/>}/>
+              <Route path={'/Results'} element={<Results result={result}/>}/>
               <Route path={'*'} element={<NotFound/>} />
             </Routes>
           </div>
