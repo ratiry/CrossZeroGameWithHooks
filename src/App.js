@@ -9,6 +9,8 @@ import { useReducer, useState, useEffect } from 'react';
 import Results from './components/Content/Results/Results';
 import NotFound from './components/Content/NotFound/NotFound';
 import CheckForVictory from './Helpers/CheckForVictory';
+import ZerosCellPick from './Helpers/ZerosCellPick';
+import markSpaceWithZero from './Helpers/MarSpaceWithZero';
 let setResul=(tempResult)=>({
   player:tempResult.player,
   winning_consequence:tempResult.winning_consequence,
@@ -16,7 +18,7 @@ let setResul=(tempResult)=>({
 })
 function App() {
   let [IsMoveOfZero,setIsMoveOfZero] = useState(false);
-  
+  let [shouldCheckForVictory,setShouldCheckForVictory]=useState(false);
   let [cells,upDateCells]=useState([
     {whose:null,id:0},{whose:null,id:1},{whose:null,id:2},
     {whose:null,id:3},{whose:null,id:4},{whose:null,id:5},
@@ -37,16 +39,33 @@ function App() {
   }
 
   useEffect(()=>{
-    if(occupiedCells.cross.length>=3){
+    if(occupiedCells.cross.length>0){
+        let tempResult=CheckForVictory(cells,occupiedCells,3);
+        if(tempResult.player!=null){
+          upDateResult(setResul(tempResult));
+        }else{
+          setIsMoveOfZero(true);
+        }
+    }
+  },[occupiedCells.cross])
+  useEffect(()=>{
+    if(shouldCheckForVictory){
       let tempResult=CheckForVictory(cells,occupiedCells,3);
-      console.log(tempResult);
       if(tempResult.player!=null){
         upDateResult(setResul(tempResult));
       }
-    }else{
-      setIsMoveOfZero(true);
+      setShouldCheckForVictory(false);
     }
-  },[occupiedCells.cross])
+  },[shouldCheckForVictory])
+  useEffect(()=>{
+    if(IsMoveOfZero){
+      let id=ZerosCellPick(cells,occupiedCells);
+      markSpaceWithZero(id,upDateCells,updateOccupiedCells);
+      debugger;
+      setShouldCheckForVictory(true);
+      setIsMoveOfZero(false); 
+    }
+  },[IsMoveOfZero])
 
   return (
     <BrowserRouter>
