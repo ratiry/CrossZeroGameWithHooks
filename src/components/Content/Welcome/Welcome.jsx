@@ -14,6 +14,7 @@ let Welcome=()=>{
           Do you dare to < strong>lose</strong>  to the dumbest computer player of tic tac toe?
         </p>
         <button className={classes.Start_button} onClick={()=> Setredirect(true)}><span>Just Do it</span></button>
+        <img src={'https://media.makeameme.org/created/hooks-everywhere.jpg'}/>
       </div>
     )
   }else{
