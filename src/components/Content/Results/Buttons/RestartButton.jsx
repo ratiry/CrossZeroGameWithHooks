@@ -2,10 +2,11 @@
 import classes from './ResultsButtons.module.scss';
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import BackToIntialization from '../../../../Helpers/BackToinitialization';
 let RestartButton=(props)=>{
   let [shouldNavigate,setshouldNavigate]  = useState(false);
   let ClickFunction=()=>{
-    props.ReturnToIntialStateAC();
+    BackToIntialization(props.setIsMoveOfZero,props.setShouldCheckForVictory,props.upDateCells,props.updateOccupiedCells,props.upDateResult)
     setshouldNavigate(true);
   }
   if(shouldNavigate){

@@ -74,7 +74,7 @@ function App() {
             <Routes>
               <Route path={'/'} element={<Welcome/>} />
               <Route path={'/Game' } element={<Game  cells={cells} occupiedCells={occupiedCells} upDateCells={upDateCells} updateOccupiedCells={updateOccupiedCells} result={result}/>}/>
-              <Route path={'/Results'} element={<Results result={result}/>}/>
+              <Route path={'/Results'} element={<Results result={result}upDateResult={upDateResult} setIsMoveOfZero={setIsMoveOfZero} setShouldCheckForVictory={setShouldCheckForVictory} upDateCells={upDateCells} updateOccupiedCells={updateOccupiedCells}/>}/>
               <Route path={'*'} element={<NotFound/>} />
             </Routes>
           </div>

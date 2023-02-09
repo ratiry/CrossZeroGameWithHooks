@@ -37,7 +37,7 @@ let Results=(props)=>{
       <DeclaringResults result={result}/>
       <div className={classes.buttonsContainer}>
         <HomeButton />
-        <RestartButton  />
+        <RestartButton {...props} />
       </div>
     </div>
   )
