@@ -10,7 +10,7 @@ let GameField=(props)=>{
   }
   let SpaceArray=props.cells.map((S)=>{ return <Space  markSpaceWithCross={()=>{MarkWithCross(S.id)}} {...props} id={S.id} whose={S.whose} />})
   return(
- <div className={classes.GameField}>
+  <div className={classes.GameField}>
     {SpaceArray}
   </div>
   ) 
