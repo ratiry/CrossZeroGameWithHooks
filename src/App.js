@@ -17,7 +17,9 @@ let setResul=(tempResult)=>({
   direction:tempResult.direction
 })
 function App() {
+  let [shouldChangeSymbols,setshouldChangeSymbols]=useState(false);
   let [IsMoveOfZero,setIsMoveOfZero] = useState(false);
+  let [TouchZeroCount,setTouchZeroCount]=useState(0);
   let [shouldCheckForVictory,setShouldCheckForVictory]=useState(false);
   let [cells,upDateCells]=useState([
     {whose:null,id:0},{whose:null,id:1},{whose:null,id:2},
@@ -65,7 +67,13 @@ function App() {
       setIsMoveOfZero(false); 
     }
   },[IsMoveOfZero])
-
+  useEffect(()=>{
+    console.log(shouldChangeSymbols);
+    if(TouchZeroCount>3){
+      setshouldChangeSymbols(true);
+     setTouchZeroCount(0);
+    }
+  },[TouchZeroCount])
   return (
     <BrowserRouter>
         <div className={classes.App}>
@@ -73,7 +81,7 @@ function App() {
           <div className={classes.Content}>
             <Routes>
               <Route path={'/'} element={<Welcome/>} />
-              <Route path={'/Game' } element={<Game  cells={cells} occupiedCells={occupiedCells} upDateCells={upDateCells} updateOccupiedCells={updateOccupiedCells} result={result}/>}/>
+              <Route path={'/Game' } element={<Game shouldChangeSymbols={shouldChangeSymbols} setTouchZeroCount={setTouchZeroCount} cells={cells} occupiedCells={occupiedCells} upDateCells={upDateCells} updateOccupiedCells={updateOccupiedCells} result={result}/>}/>
               <Route path={'/Results'} element={<Results result={result}upDateResult={upDateResult} setIsMoveOfZero={setIsMoveOfZero} setShouldCheckForVictory={setShouldCheckForVictory} upDateCells={upDateCells} updateOccupiedCells={updateOccupiedCells}/>}/>
               <Route path={'*'} element={<NotFound/>} />
             </Routes>
