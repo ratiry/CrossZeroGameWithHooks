@@ -6,6 +6,7 @@ import { useEffect,useState } from 'react';
 import CheckForVictory from '../../../Helpers/CheckForVictory';
 import ZerosCellPick from '../../../Helpers/ZerosCellPick';
 import markSpaceWithZero from '../../../Helpers/MarSpaceWithZero';
+import { ButtonWithText } from '../../common/Buttons/Buttons';
 let setResul=(tempResult)=>({
   player:tempResult.player,
   winning_consequence:tempResult.winning_consequence,
@@ -73,7 +74,7 @@ let Game=(props)=>{
     <div className={classes.Game_container}>
       <h1>Tic Tac Toe</h1>
       <GameField  houldChangeSymbols={shouldChangeSymbols} setTouchZeroCount={setTouchZeroCount} cells={cells} occupiedCells={occupiedCells} upDateCells={upDateCells} updateOccupiedCells={updateOccupiedCells} result={result} />
-      {result.player ? <GetResultsButton/> : null}
+      {result.player ? <ButtonWithText><p>Get Results</p></ButtonWithText> : null}
     </div>
   )
 }

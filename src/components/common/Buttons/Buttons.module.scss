@@ -1,0 +1,18 @@
+
+.button_with_icon{
+  min-height:8vh;
+  min-width:8vh;
+  border:3px solid orange;
+  background:yellow;
+}
+.Button_with_text{
+  min-width:10vw;  
+  background:yellow;
+  padding:10px;
+  border-radius:30px;
+  p{  
+    font-size:24px;
+    font-weight: bold !important;;
+    color:black !important;
+  }
+}

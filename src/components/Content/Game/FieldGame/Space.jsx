@@ -49,7 +49,6 @@ if(props.result.player=='zero' || props.result.player=='cross'){
   let Case=2;
   if(props.whose=='zero'){
     Case=1;
-    debugger;
   }else if(props.whose=='cross'){
     Case=0;
   }
