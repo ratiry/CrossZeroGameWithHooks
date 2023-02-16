@@ -8,6 +8,7 @@ import ZerosCellPick from '../../../Helpers/ZerosCellPick';
 import markSpaceWithZero from '../../../Helpers/MarSpaceWithZero';
 import { ButtonWithText } from '../../common/Buttons/Buttons';
 import { useNavigate } from 'react-router-dom';
+import Intialization from '../../../Helpers/Initialization';
 let setResul=(tempResult)=>({
   player:tempResult.player,
   winning_consequence:tempResult.winning_consequence,
@@ -15,23 +16,13 @@ let setResul=(tempResult)=>({
 })
 let Game=(props)=>{
   let navigate=useNavigate();
-  let [shouldChangeSymbols,setshouldChangeSymbols]=useState(false);
-  let [IsMoveOfZero,setIsMoveOfZero] = useState(false);
-  let [TouchZeroCount,setTouchZeroCount]=useState(0);
-  let [shouldCheckForVictory,setShouldCheckForVictory]=useState(false);
-  let [cells,upDateCells]=useState([
-    {whose:null,id:0},{whose:null,id:1},{whose:null,id:2},
-    {whose:null,id:3},{whose:null,id:4},{whose:null,id:5},
-    {whose:null,id:6},{whose:null,id:7},{whose:null,id:8},])
-  let [occupiedCells,updateOccupiedCells]=useState({
-    cross:[],
-    zero:[]
-  });
-  let [result,upDateResult]=useState({
-    player:null,
-    winning_consequence:null,
-    direction:null
-  })
+  let [shouldChangeSymbols,setshouldChangeSymbols]=useState(Intialization.shouldChangeSymbols);
+  let [IsMoveOfZero,setIsMoveOfZero] = useState(Intialization.IsMoveOfZero);
+  let [TouchZeroCount,setTouchZeroCount]=useState(Intialization.TouchZeroCount);
+  let [shouldCheckForVictory,setShouldCheckForVictory]=useState(Intialization.shouldChangeSymbols);
+  let [cells,upDateCells]=useState(Intialization.cells)
+  let [occupiedCells,updateOccupiedCells]=useState(Intialization.occupiedCells);
+  let [result,upDateResult]=useState(Intialization.result)
   window.store={
     cells:cells,
     occupiedCells:occupiedCells,
