@@ -7,13 +7,15 @@ import CheckForVictory from '../../../Helpers/CheckForVictory';
 import ZerosCellPick from '../../../Helpers/ZerosCellPick';
 import markSpaceWithZero from '../../../Helpers/MarSpaceWithZero';
 import { ButtonWithText } from '../../common/Buttons/Buttons';
+import { useNavigate } from 'react-router-dom';
 let setResul=(tempResult)=>({
   player:tempResult.player,
   winning_consequence:tempResult.winning_consequence,
   direction:tempResult.direction
 })
 let Game=(props)=>{
-    let [shouldChangeSymbols,setshouldChangeSymbols]=useState(false);
+  let navigate=useNavigate();
+  let [shouldChangeSymbols,setshouldChangeSymbols]=useState(false);
   let [IsMoveOfZero,setIsMoveOfZero] = useState(false);
   let [TouchZeroCount,setTouchZeroCount]=useState(0);
   let [shouldCheckForVictory,setShouldCheckForVictory]=useState(false);
@@ -70,11 +72,18 @@ let Game=(props)=>{
      setTouchZeroCount(0);
     }
   },[TouchZeroCount])
+  let GoToResultsPage=()=>{
+    navigate('/Results',{
+      state:{
+        result:result.player
+      }
+    })
+  }
   return(
     <div className={classes.Game_container}>
       <h1>Tic Tac Toe</h1>
       <GameField  houldChangeSymbols={shouldChangeSymbols} setTouchZeroCount={setTouchZeroCount} cells={cells} occupiedCells={occupiedCells} upDateCells={upDateCells} updateOccupiedCells={updateOccupiedCells} result={result} />
-      {result.player ? <ButtonWithText><p>Get Results</p></ButtonWithText> : null}
+      {result.player ? <ButtonWithText onClick={GoToResultsPage}><p>Get Results</p></ButtonWithText> : null}
     </div>
   )
 }
