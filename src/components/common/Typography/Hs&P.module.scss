@@ -2,15 +2,19 @@ h1{
   color:yellow;
   font-size:45px;
   text-transform: uppercase;
+  margin:15px;
 }
 h2{
   color:yellow;
   font-size: 35px;
   text-transform: uppercase;
+  margin:10px;
 }
-p{
+.P{
   color:yellow;
   font-size:20px;
+  margin:5px;
+  font-weight:bold;
   &.large{
     font-size:30px;
   }

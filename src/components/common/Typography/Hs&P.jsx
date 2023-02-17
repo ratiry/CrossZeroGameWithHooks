@@ -14,15 +14,15 @@ export let P=(props)=>{
   switch(props.size){
     case 'large':
       return(
-        <p className={classes.large}>{props.children}</p>
+        <p className={classes.large+ ' ' + classes.P}>{props.children}</p>
       )
     case 'small':
       return(
-        <p className={classes.large}>{props.children}</p>
+        <p className={classes.small + ' ' + classes.P}>{props.children}</p>
       )
     default:
       return(
-       <p>{props.children}</p>
+       <p className={props.P}>{props.children}</p>
       )
   }
 }
