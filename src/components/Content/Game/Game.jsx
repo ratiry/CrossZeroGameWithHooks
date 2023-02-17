@@ -64,10 +64,25 @@ let Game=(props)=>{
     }
   },[TouchZeroCount])
   useEffect(()=>{
+    if(result.player!=null){
+      switch(result.player){
+        case 'cross':
+          props.addVictory();
+          break;
+        case 'zero':
+          props.addDefeat();
+          break;
+        case 'tie':
+          props.addTie();
+      }
+    }
+  },[result.player])
+  useEffect(()=>{
     return ()=>{
       BackToIntialization(setshouldChangeSymbols,setIsMoveOfZero,setShouldCheckForVictory,upDateCells,updateOccupiedCells,upDateResult)
     }
   },[]);
+
   let GoToResultsPage=()=>{
     navigate('/Results',{
       state:{
