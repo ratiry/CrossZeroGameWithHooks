@@ -1,19 +1,10 @@
-
-let BackToIntialization=(setIsMoveOfZero,setShouldCheckForVictory,upDateCells,updateOccupiedCells,upDateResult)=>{
-  setIsMoveOfZero(false);
-  setShouldCheckForVictory(false);
-  upDateCells([
-    {whose:null,id:0},{whose:null,id:1},{whose:null,id:2},
-    {whose:null,id:3},{whose:null,id:4},{whose:null,id:5},
-    {whose:null,id:6},{whose:null,id:7},{whose:null,id:8},]);
-  updateOccupiedCells({
-    cross:[],
-    zero:[]
-  })
-  upDateResult({
-    player:null,
-    winning_consequence:null,
-    direction:null
-  })
+import Intialization from "./Initialization";
+let BackToIntialization=(setshouldChangeSymbols,setIsMoveOfZero,setShouldCheckForVictory,upDateCells,updateOccupiedCells,upDateResult)=>{
+  setshouldChangeSymbols(Intialization.shouldChangeSymbols)
+  setIsMoveOfZero(Intialization.IsMoveOfZero);
+  setShouldCheckForVictory(Intialization.shouldCheckForVictory);
+  upDateCells(Intialization.cells);
+  updateOccupiedCells(Intialization.occupiedCells)
+  upDateResult(Intialization.result)
 }
 export default BackToIntialization;

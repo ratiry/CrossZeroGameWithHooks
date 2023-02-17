@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import classes from './Results.module.scss';
 import DeclaringResults from './Declaring_Results/DeclaringResults';
-import HomeButton from './Buttons/HomeButton';
-import RestartButton from './Buttons/RestartButton';
 import { ButtonWithIcon } from '../../common/Buttons/Buttons';
 let Results=(props)=>{
   let location=useLocation();
