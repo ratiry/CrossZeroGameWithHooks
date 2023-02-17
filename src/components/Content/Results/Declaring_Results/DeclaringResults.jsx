@@ -1,4 +1,5 @@
 import classes from './DeclaringResults.module.scss';
+import { H2 } from '../../../common/Typography/Hs&P';
 let DeclaringResults=(props)=>{
   let Case=0;
   let Cases=[
@@ -13,7 +14,7 @@ let DeclaringResults=(props)=>{
   }
   return(
     <div className={classes.DeclaringResults_container}>
-      <p>{Cases[Case].result}</p>
+      <H2>{Cases[Case].result}</H2>
       <img src={Cases[Case].img}/>
     </div>
   )
