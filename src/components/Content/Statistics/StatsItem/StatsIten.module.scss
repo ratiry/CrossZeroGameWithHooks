@@ -3,6 +3,7 @@
   grid-template-columns:repeat(2,1fr) ;
   grid-template-rows: repeat(2,1fr);
   border-left:yellow solid 2px;
+  border-right:yellow solid 2px;
   .number{
     grid-row-start: 1;
     grid-row-end: 3;

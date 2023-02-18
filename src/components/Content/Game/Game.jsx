@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import Intialization from '../../../Helpers/Initialization';
 import BackToIntialization from '../../../Helpers/BackToinitialization';
 import { H1 } from '../../common/Typography/Hs&P';
+import Container from '../../common/Typography/Container/Container';
 let setResul=(tempResult)=>({
   player:tempResult.player,
   winning_consequence:tempResult.winning_consequence,
@@ -91,11 +92,11 @@ let Game=(props)=>{
     })
   }
   return(
-    <div className={classes.Game_container}>
+    <Container>
       <H1>Tic Tac Toe</H1>
       <GameField  shouldChangeSymbols={shouldChangeSymbols} setTouchZeroCount={setTouchZeroCount} cells={cells} occupiedCells={occupiedCells} upDateCells={upDateCells} updateOccupiedCells={updateOccupiedCells} result={result} />
       {result.player ? <ButtonWithText onClick={GoToResultsPage}><p>Get Results</p></ButtonWithText> : null}
-    </div>
+    </Container>
   )
 }
 

@@ -40,7 +40,7 @@ function App() {
               <Route path={'/Game' } element={<Game addVictory={addVictory} addDefeat={addDefeat} addTie={addTie}/>}/>
               <Route path={'/Results'} element={<Results />}/>
               <Route path={'*'} element={<NotFound/>} />
-              <Route path='/Statistics' element={<Statistics Victories={Victories} Defeats={Defeats} Ties={Ties}/>}/>
+              <Route path='/Statistics' element={<Statistics setVictories={setVictories} setDefeats={setDefeats} setTies={setTies} Victories={Victories} Defeats={Defeats} Ties={Ties}/>}/>
             </Routes>
           </div>
           <Footer/>

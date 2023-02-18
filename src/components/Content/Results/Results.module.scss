@@ -1,11 +1,6 @@
-.Results{
-  width:100%;
+
+.buttonsContainer{
   display:flex;
-  flex-direction:column;
-  align-items:center;
-  .buttonsContainer{
-    display:flex;
-    justify-content:space-evenly;
-    width:inherit;
-  }
+  justify-content:space-evenly;
+  width:80%;
 }
