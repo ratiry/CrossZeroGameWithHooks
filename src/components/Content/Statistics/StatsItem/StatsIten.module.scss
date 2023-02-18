@@ -1,0 +1,25 @@
+.Item{
+  display:grid;
+  grid-template-columns:repeat(2,1fr) ;
+  grid-template-rows: repeat(2,1fr);
+  .number{
+    grid-row-start: 1;
+    grid-row-end: 3;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+  }
+  .type{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+  }
+  .img{
+    img{
+      width:200px;
+      max-width:20vw;
+    }
+  }
+}

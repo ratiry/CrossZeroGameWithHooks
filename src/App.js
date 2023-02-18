@@ -11,6 +11,7 @@ import CheckForVictory from './Helpers/CheckForVictory';
 import ZerosCellPick from './Helpers/ZerosCellPick';
 import markSpaceWithZero from './Helpers/MarSpaceWithZero';
 import useLocalStorage from './Helpers/Hooks/useLocalStorage';
+import Statistics from './components/Content/Statistics/Statistics';
 
 function App() {
   const ammountOfVictories='ammountOfVictories';
@@ -39,6 +40,7 @@ function App() {
               <Route path={'/Game' } element={<Game addVictory={addVictory} addDefeat={addDefeat} addTie={addTie}/>}/>
               <Route path={'/Results'} element={<Results />}/>
               <Route path={'*'} element={<NotFound/>} />
+              <Route path='/Statistics' element={<Statistics Victories={Victories} Defeats={Defeats} Ties={Ties}/>}/>
             </Routes>
           </div>
           <Footer/>
