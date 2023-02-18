@@ -9,6 +9,8 @@ let Statistics=(props)=>{
 let ToHomeClick=()=>{
   navigate('/')
 }
+console.log(props)
+console.log(window.localStorage);
   return(
     <Container>
       <H1> Stats</H1>
