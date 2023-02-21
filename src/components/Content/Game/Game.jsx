@@ -92,11 +92,11 @@ let Game=(props)=>{
     })
   }
   return(
-    <Container>
+    <>
       <H1>Tic Tac Toe</H1>
       <GameField  shouldChangeSymbols={shouldChangeSymbols} setTouchZeroCount={setTouchZeroCount} cells={cells} occupiedCells={occupiedCells} upDateCells={upDateCells} updateOccupiedCells={updateOccupiedCells} result={result} />
       {result.player ? <ButtonWithText onClick={GoToResultsPage}><p>Get Results</p></ButtonWithText> : null}
-    </Container>
+    </>
   )
 }
 

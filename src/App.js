@@ -12,6 +12,7 @@ import ZerosCellPick from './Helpers/ZerosCellPick';
 import markSpaceWithZero from './Helpers/MarSpaceWithZero';
 import useLocalStorage from './Helpers/Hooks/useLocalStorage';
 import Statistics from './components/Content/Statistics/Statistics';
+import Container from './components/common/Typography/Container/Container';
 
 function App() {
   const ammountOfVictories='ammountOfVictories';
@@ -35,13 +36,15 @@ function App() {
         <div className={classes.App}>
           <Header/>
           <div className={classes.Content}>
-            <Routes>
-              <Route path={'/'} element={<Welcome/>} />
-              <Route path={'/Game' } element={<Game addVictory={addVictory} addDefeat={addDefeat} addTie={addTie}/>}/>
-              <Route path={'/Results'} element={<Results />}/>
-              <Route path={'*'} element={<NotFound/>} />
-              <Route path='/Statistics' element={<Statistics setVictories={setVictories} setDefeats={setDefeats} setTies={setTies} Victories={Victories} Defeats={Defeats} Ties={Ties}/>}/>
-            </Routes>
+            <Container>
+              <Routes>
+                <Route path={'/'} element={<Welcome/>} />
+                <Route path={'/Game' } element={<Game addVictory={addVictory} addDefeat={addDefeat} addTie={addTie}/>}/>
+                <Route path={'/Results'} element={<Results />}/>
+                <Route path={'*'} element={<NotFound/>} />
+                <Route path='/Statistics' element={<Statistics setVictories={setVictories} setDefeats={setDefeats} setTies={setTies} Victories={Victories} Defeats={Defeats} Ties={Ties}/>}/>
+              </Routes>
+            </Container>
           </div>
           <Footer/>
         </div>
