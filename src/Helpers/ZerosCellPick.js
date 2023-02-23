@@ -1,5 +1,6 @@
 
 import CheckOccupiedCell from './CheckOccupiedCell';
+import NotOnOneRowRightDiagonal from './NotOnOneRowRightDiagonal';
 function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
@@ -16,22 +17,18 @@ let ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
         if(cells[i].whose =='zero'){
           if(cells[i+1].whose=='zero' & cells[i+2].whose==null){
             id= cells[i+2].id;
-            debugger;
             break;
           }
           if(cells[i+1].whose==null & cells[i+2].whose=='zero'){
             id=cells[i+1].id;
-            debugger;
             break;
           }
           if(cells[i+1].whose==null & cells[i+2].whose==null){
             id= cells[i+1].id;
-            debugger;
             break;
           }
         }else if(cells[i].whose==null){
           if(cells[i+1].whose!='cross' & cells[i+2].whose!='cross' &   (cells[i+1].whose =='zero' || cells[i+2].whose=='zero')){
-            debugger;
             id=cells[i].id;
             break;
           }
@@ -61,29 +58,52 @@ let ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
       }
     }
     if(definedLeftDiagonalCondition){
-      if(cells[i].id =='zero'){
+      if(cells[i].whose =='zero'){
         if(cells[i+3+1].whose ==null & cells[i+2*(3+1)].whose ==null){
           id=cells[i+3+1].id;
           break;
         }
         if(cells[i+3+1].whose =='zero' & cells[i+2*(3+1)].whose ==null){
-          id=cells[i+2*(3+1)];
+          id=cells[i+2*(3+1)].id;
           break;
         }
         if(cells[i+3+1].whose ==null & cells[i+2*(3+1)].whose =='zero'){
           id=cells[i+3+1].id;
           break;
         }
-      }else if(cells[i].id ==null){
+      }else if(cells[i].whose ==null){
         if(cells[i+3+1].whose !='cross' & cells[i+2*(3+1)].whose!='cross' & (cells[i+3+1].whose =='zero' || cells[i+2*(3+1)].whose=='zero')){
           id=cells[i].id;
           break;
         }
       }
     }
-    
+    if(definedRightDiagonal){
+      let notOnOneRow=NotOnOneRowRightDiagonal(cells,occuppied_Cells,i,true);
+      debugger;
+      if(notOnOneRow){
+        if(cells[i].whose =='zero'){
+          if(cells[i+3-1].whose=='zero' & cells[i+2*(3-1)].whose==null){
+            id=cells[i+2*(3-1)].id;
+            break;
+          }
+          if(cells[i+3-1].whose==null & cells[i+2*(3-1)].whose=='zero'){
+            id=cells[i+3-1].id;
+            break;
+          }
+          if(cells[i+3-1].whose==null & cells[i+2*(3-1)].whose==null){
+            id=cells[i+3-1].id;
+            break;
+          }
+        }else if(cells[i].whose ==null){
+          if(cells[i+3-1].whose !='cross' & cells[i+2*(3-1)].whose!='cross' & (cells[i+3-1].whose =='zero' || cells[i+2*(3-1)].whose=='zero')){
+            id=cells[i].id;
+            break;
+          }
+        }     
+      }
+    }
   }
-  debugger;
   return id;
 }
 let ZerosCellPick=(cells,occuppied_Cells,shouldChangeSymbols)=>{

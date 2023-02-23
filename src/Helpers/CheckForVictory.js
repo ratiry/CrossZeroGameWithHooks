@@ -1,5 +1,5 @@
 
-
+import NotOnOneRowRightDiagonal from "./NotOnOneRowRightDiagonal";
 let conditipnsFunction=(index,cells,occuppied_Cells,player,rows)=>{
   let result = null;
   let winning_consequence=[];
@@ -43,15 +43,7 @@ let conditipnsFunction=(index,cells,occuppied_Cells,player,rows)=>{
       let RightDiagonalCondition = cells[occuppied_Cells[index].id +rows-1].whose==player & cells[occuppied_Cells[index].id +2*(rows-1)].whose==player;
       
       if(RightDiagonalCondition ){
-        let rowsArray=[Math.floor(cells[occuppied_Cells[index].id].id/rows),Math.floor(cells[occuppied_Cells[index].id+rows-1].id/rows),Math.floor(cells[occuppied_Cells[index].id+2*(rows-1)].id/rows)];
-        let NotOnOneRow=true;
-        for(let i=0;i<rowsArray.length;i++){
-          for(let ii=0;ii<rowsArray.length;ii++){
-            if(rowsArray[i]==rowsArray[ii] & i!==ii){
-              NotOnOneRow=false;
-            }
-          }
-        }
+        let NotOnOneRow=NotOnOneRowRightDiagonal(cells,occuppied_Cells,index,false);
         if(NotOnOneRow){
           result=player;
           winning_consequence=[cells[occuppied_Cells[index].id].id,cells[occuppied_Cells[index].id+rows-1].id,cells[occuppied_Cells[index].id+2*(rows-1)].id]
