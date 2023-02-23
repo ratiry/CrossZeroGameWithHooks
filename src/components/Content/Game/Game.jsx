@@ -51,7 +51,7 @@ let Game=(props)=>{
   },[shouldCheckForVictory])
   useEffect(()=>{
     if(IsMoveOfZero){
-      let id=ZerosCellPick(cells,occupiedCells);
+      let id=ZerosCellPick(cells,occupiedCells,shouldChangeSymbols);
       markSpaceWithZero(id,upDateCells,updateOccupiedCells);
       setShouldCheckForVictory(true);
       setIsMoveOfZero(false); 

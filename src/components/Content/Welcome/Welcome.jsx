@@ -14,7 +14,7 @@ let Welcome=()=>{
       <>
           <div className={classes.Welcome}>
         {/* <P size='large'>Hello , BlaBla</P> */}
-        <H1>Hello , BlaBla</H1>
+        <H1>Hello , traveller of a browser</H1>
           <P >
             Do you dare to < strong>lose</strong>  to the dumbest computer player of tic tac toe?
           </P>
