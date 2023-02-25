@@ -2,12 +2,12 @@ import { BrowserRouter, Routes,Route } from 'react-router-dom';
 import classes from './App.module.scss';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import Game from './components/Content/Game/Game';
-import Welcome from './components/Content/Welcome/Welcome';
-import Results from './components/Content/Results/Results';
-import NotFound from './components/Content/NotFound/NotFound';
+import Game from './components/Pages/Game/Game';
+import Welcome from './components/Pages/Welcome/Welcome';
+import Results from './components/Pages/Results/Results';
+import NotFound from './components/Pages/NotFound/NotFound';
 import useLocalStorage from './Helpers/Hooks/useLocalStorage';
-import Statistics from './components/Content/Statistics/Statistics';
+import Statistics from './components/Pages/Statistics/Statistics';
 import Container from './components/common/layout/Container';
 
 export const GamePageUrl = '/Game';
