@@ -1,5 +1,5 @@
 import { ButtonWithIcon, ButtonWithText } from "../../common/buttons/Buttons";
-import { H1 } from "../../common/Typography/Typography";
+import { H1 } from "../../common/typography/Typography";
 import classes from './Statistics.module.scss';
 import StatsItem from "./StatsItem/StatsItem";
 import { useNavigate } from 'react-router-dom';

@@ -1,6 +1,6 @@
 import classes from './Header.module.scss';
 import Container from '../common/layout/Container';
-import {P} from '../common/Typography/Typography';
+import {P} from '../common/typography/Typography';
 import { useNavigate } from 'react-router-dom';
 
 const Header=(props)=>{

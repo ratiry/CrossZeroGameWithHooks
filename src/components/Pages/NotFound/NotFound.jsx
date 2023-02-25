@@ -2,7 +2,7 @@
 import { ButtonWithIcon } from '../../common/buttons/Buttons';
 import classes from './NotFound.module.scss';
 import { useNavigate } from 'react-router-dom';
-import { H1 } from '../../common/Typography/Typography';
+import { H1 } from '../../common/typography/Typography';
 
 const NotFound=(props)=>{
   

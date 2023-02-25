@@ -5,7 +5,7 @@ import ZerosCellPick from '../../../Helpers/ZerosCellPick';
 import markSpaceWithZero from '../../../Helpers/MarSpaceWithZero';
 import { ButtonWithText } from '../../common/buttons/Buttons';
 import { useNavigate } from 'react-router-dom';
-import { H1 } from '../../common/Typography/Typography';
+import { H1 } from '../../common/typography/Typography';
 
 const Init = {
   shouldChangeSymbols:false,

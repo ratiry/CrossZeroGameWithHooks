@@ -3,7 +3,7 @@ import React from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import classes from './Results.module.scss';
 import DeclaringResults from './Declaring_Results/DeclaringResults';
-import { H1, } from '../../common/Typography/Typography';
+import { H1, } from '../../common/typography/Typography';
 import { ButtonWithIcon } from '../../common/buttons/Buttons';
 import { GamePageUrl } from '../../../App'
 import { StatisticsPageUrl } from '../../../App'

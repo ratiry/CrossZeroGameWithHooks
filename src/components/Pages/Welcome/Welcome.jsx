@@ -1,7 +1,7 @@
 import classes from './Welcome.module.scss';
 import { ButtonWithText } from '../../common/buttons/Buttons';
 import { useNavigate } from 'react-router-dom';
-import { H1, P } from '../../common/Typography/Typography';
+import { H1, P } from '../../common/typography/Typography';
 import { GamePageUrl } from '../../../App'
 
 const Welcome=()=>{

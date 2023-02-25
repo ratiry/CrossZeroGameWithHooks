@@ -1,6 +1,6 @@
 
 import classes from './StatsItem.module.scss';
-import { P } from '../../../common/Typography/Typography';
+import { P } from '../../../common/typography/Typography';
 
 const StatsItem=(props)=>{
   return(
