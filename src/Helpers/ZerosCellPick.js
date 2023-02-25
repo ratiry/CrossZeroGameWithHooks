@@ -5,9 +5,28 @@ import NotOnOneRowRightDiagonal from './NotOnOneRowRightDiagonal';
 function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
-
+const SelectIdWithMaxPriority=(Options)=>{
+  let priority=0;
+  let id=-1;
+  for(let i=0;i<Options.length;i++){
+    if(priority<Options[i].priority){
+      priority=Options[i].priority;
+    }
+  }
+  for(let i=0;i<Options.length;i++){
+    if(priority ===Options[i].priority){
+      id=Options[i].id;
+      break;
+    }
+  }
+  return id;
+}
 const ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
-  let id=null;
+  let Options=[];
+  let makeOption=(id,priority)=>({
+    id,
+    priority
+  })
   for(let i=0;i<cells.length;i++){
     let definedHorizontalCondition=cells[i +2] !==undefined & cells[i +1] !==undefined;;
     let definedVerticalCondition=cells[i +3] !==undefined & cells[i +3+3] !==undefined;;
@@ -18,21 +37,25 @@ const ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
       if(onOneRowHorizontalCondition){
         if(cells[i].whose =='zero'){
           if(cells[i+1].whose=='zero' & cells[i+2].whose==null){
-            id= cells[i+2].id;
-            break;
+            let id= cells[i+2].id;
+            Options.push(makeOption(id,2));
           }
           if(cells[i+1].whose==null & cells[i+2].whose=='zero'){
-            id=cells[i+1].id;
-            break;
+            let id=cells[i+1].id;
+            Options.push(makeOption(id,2));
           }
           if(cells[i+1].whose==null & cells[i+2].whose==null){
-            id= cells[i+1].id;
-            break;
+            let id= cells[i+1].id;
+            Options.push(makeOption(id,1));
           }
         }else if(cells[i].whose==null){
           if(cells[i+1].whose!='cross' & cells[i+2].whose!='cross' &   (cells[i+1].whose =='zero' || cells[i+2].whose=='zero')){
-            id=cells[i].id;
-            break;
+            let id=cells[i].id;
+            if(cells[i+1].whose =='zero' & cells[i+2].whose=='zero'){
+              Options.push(makeOption(id,2));
+            }else{
+              Options.push(makeOption(id,1));
+            }
           }
         }
         
@@ -41,81 +64,94 @@ const ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
     if(definedVerticalCondition){
       if(cells[i].whose=='zero'){
         if(cells[i+3].whose=='zero' & cells[i+6].whose==null){
-          id=cells[i+6].id;
-          break;
+          let id=cells[i+6].id;
+          Options.push(makeOption(id,2));
         }
         if(cells[i+6].whose=='zero' & cells[i+3].whose==null){
-          id=cells[i+3].id;
-          break;
+          let  id=cells[i+3].id;
+          Options.push(makeOption(id,2));
         }
         if(cells[i+6].whose==null & cells[i+3].whose==null){
-          id=cells[i+3].id;
-          break;
+          let id=cells[i+3].id;
+          Options.push(makeOption(id,1));
         }
       }else if(cells[i].whose ==null){
         if(cells[i+3].whose !='cross' & cells[i+6].whose!='cross' & (cells[i+3].whose =='zero' || cells[i+6].whose=='zero')){
-          id=cells[i].id;
-          break;
+          let id=cells[i].id;
+          if(cells[i+3].whose =='zero' & cells[i+6].whose=='zero'){
+            Options.push(makeOption(id,2));
+          }else{
+            Options.push(makeOption(id,1));
+          }
         }
       }
     }
     if(definedLeftDiagonalCondition){
       if(cells[i].whose =='zero'){
         if(cells[i+3+1].whose ==null & cells[i+2*(3+1)].whose ==null){
-          id=cells[i+3+1].id;
-          break;
+          let id=cells[i+3+1].id;
+          Options.push(makeOption(id,1));
+          
         }
         if(cells[i+3+1].whose =='zero' & cells[i+2*(3+1)].whose ==null){
-          id=cells[i+2*(3+1)].id;
-          break;
+          let id=cells[i+2*(3+1)].id;
+          Options.push(makeOption(id,2));
         }
         if(cells[i+3+1].whose ==null & cells[i+2*(3+1)].whose =='zero'){
-          id=cells[i+3+1].id;
-          break;
+          let id=cells[i+3+1].id;
+          Options.push(makeOption(id,2));
         }
       }else if(cells[i].whose ==null){
         if(cells[i+3+1].whose !='cross' & cells[i+2*(3+1)].whose!='cross' & (cells[i+3+1].whose =='zero' || cells[i+2*(3+1)].whose=='zero')){
-          id=cells[i].id;
-          break;
+          let id=cells[i].id;
+          if(cells[i+3+1].whose =='zero' & cells[i+2*(3+1)].whose=='zero'){
+            Options.push(makeOption(id,2));
+          }else{
+            Options.push(makeOption(id,1));
+          }
         }
       }
     }
     if(definedRightDiagonal){
       let notOnOneRow=NotOnOneRowRightDiagonal(cells,occuppied_Cells,i,true);
-      debugger;
       if(notOnOneRow){
         if(cells[i].whose =='zero'){
           if(cells[i+3-1].whose=='zero' & cells[i+2*(3-1)].whose==null){
-            id=cells[i+2*(3-1)].id;
-            break;
+            let id=cells[i+2*(3-1)].id;
+            Options.push(makeOption(id,2));
           }
           if(cells[i+3-1].whose==null & cells[i+2*(3-1)].whose=='zero'){
-            id=cells[i+3-1].id;
-            break;
+            let  id=cells[i+3-1].id;
+            Options.push(makeOption(id,2));
           }
           if(cells[i+3-1].whose==null & cells[i+2*(3-1)].whose==null){
-            id=cells[i+3-1].id;
-            break;
+            let  id=cells[i+3-1].id;
+            Options.push(makeOption(id,1))
           }
         }else if(cells[i].whose ==null){
           if(cells[i+3-1].whose !='cross' & cells[i+2*(3-1)].whose!='cross' & (cells[i+3-1].whose =='zero' || cells[i+2*(3-1)].whose=='zero')){
-            id=cells[i].id;
-            break;
+            let  id=cells[i].id;
+            if(cells[i+3-1].whose =='zero' & cells[i+2*(3-1)].whose=='zero'){
+              Options.push(makeOption(id,2));
+            }
           }
         }     
       }
     }
   }
-  return id;
+  return Options;
 }
 
 const ZerosCellPick=(cells,occuppied_Cells,shouldChangeSymbols)=>{
   let IsApproved=false;
   let id=null;
   if(shouldChangeSymbols){
-   id= ZeroCellBasedOnPrevios(cells,occuppied_Cells);
-   if(id !=null){
-    return id;
+   let Options=  ZeroCellBasedOnPrevios(cells,occuppied_Cells);
+   if(Options.length>0){
+    id=SelectIdWithMaxPriority(Options);
+    if(id>-1){
+      return id;
+    }
    }
   }
   while(!IsApproved){
