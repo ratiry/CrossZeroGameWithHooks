@@ -1,10 +1,10 @@
 import classes from './Welcome.module.scss';
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { ButtonWithText } from '../../common/Buttons/Buttons';
+import { ButtonWithText } from '../../common/buttons/Buttons';
 import { useNavigate } from 'react-router-dom';
-import { H1, P } from '../../common/Typography/Hs&P';
-import Container from '../../common/Typography/Container/Container';
+import { H1, P } from '../../common/Typography/Typography';
+import Container from '../../common/layout/Container';
 let Welcome=()=>{
     let navigate=useNavigate();
     let GoToGamePage=()=>{

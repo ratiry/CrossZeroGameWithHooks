@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import classes from './Results.module.scss';
 import DeclaringResults from './Declaring_Results/DeclaringResults';
-import { H1, } from '../../common/Typography/Hs&P';
-import { ButtonWithIcon } from '../../common/Buttons/Buttons';
-import Container from '../../common/Typography/Container/Container';
+import { H1, } from '../../common/Typography/Typography';
+import { ButtonWithIcon } from '../../common/buttons/Buttons';
+import Container from '../../common/layout/Container';
 let Results=(props)=>{
   let location=useLocation();
   let navigate=useNavigate();

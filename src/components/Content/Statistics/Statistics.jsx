@@ -1,6 +1,6 @@
-import { ButtonWithIcon, ButtonWithText } from "../../common/Buttons/Buttons";
-import Container from "../../common/Typography/Container/Container";
-import { H1 } from "../../common/Typography/Hs&P";
+import { ButtonWithIcon, ButtonWithText } from "../../common/buttons/Buttons";
+import Container from "../../common/layout/Container";
+import { H1 } from "../../common/Typography/Typography";
 import classes from './Statistics.module.scss';
 import StatsItem from "./StatsItem/StatsItem";
 import { useNavigate } from 'react-router-dom';

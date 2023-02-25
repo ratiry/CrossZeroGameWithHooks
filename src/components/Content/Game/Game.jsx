@@ -1,21 +1,21 @@
 import GameField from './FieldGame/FieldGame';
-import classes from './Game.module.scss';
 import { useEffect,useState } from 'react';
 import CheckForVictory from '../../../Helpers/CheckForVictory';
 import ZerosCellPick from '../../../Helpers/ZerosCellPick';
 import markSpaceWithZero from '../../../Helpers/MarSpaceWithZero';
-import { ButtonWithText } from '../../common/Buttons/Buttons';
+import { ButtonWithText } from '../../common/buttons/Buttons';
 import { useNavigate } from 'react-router-dom';
 import Intialization from '../../../Helpers/Initialization';
 import BackToIntialization from '../../../Helpers/BackToinitialization';
-import { H1 } from '../../common/Typography/Hs&P';
-import Container from '../../common/Typography/Container/Container';
-let setResul=(tempResult)=>({
+import { H1 } from '../../common/Typography/Typography';
+
+const setResult=(tempResult)=>({
   player:tempResult.player,
   winning_consequence:tempResult.winning_consequence,
   direction:tempResult.direction
 })
-let Game=(props)=>{
+
+const Game=(props)=>{
   let navigate=useNavigate();
   let [shouldChangeSymbols,setshouldChangeSymbols]=useState(Intialization.shouldChangeSymbols);
   let [IsMoveOfZero,setIsMoveOfZero] = useState(Intialization.IsMoveOfZero);
@@ -34,7 +34,7 @@ let Game=(props)=>{
     if(occupiedCells.cross.length>0){
         let tempResult=CheckForVictory(cells,occupiedCells,3);
         if(tempResult.player!=null){
-          upDateResult(setResul(tempResult));
+          upDateResult(setResult(tempResult));
         }else{
           setIsMoveOfZero(true);
         }
@@ -44,7 +44,7 @@ let Game=(props)=>{
     if(shouldCheckForVictory){
       let tempResult=CheckForVictory(cells,occupiedCells,3);
       if(tempResult.player!=null){
-        upDateResult(setResul(tempResult));
+        upDateResult(setResult(tempResult));
       }
       setShouldCheckForVictory(false);
     }

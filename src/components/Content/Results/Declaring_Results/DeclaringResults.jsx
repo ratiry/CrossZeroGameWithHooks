@@ -1,5 +1,5 @@
 import classes from './DeclaringResults.module.scss';
-import { H2 } from '../../../common/Typography/Hs&P';
+import { H2 } from '../../../common/Typography/Typography';
 let DeclaringResults=(props)=>{
   let Case=0;
   let Cases=[

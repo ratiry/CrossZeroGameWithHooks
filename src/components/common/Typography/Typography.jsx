@@ -1,5 +1,5 @@
 
-import classes from './Hs&P.module.scss';
+import classes from './Typography.module.scss';
 export let H1=(props)=>{
   return(
     <h1>{props.children}</h1>

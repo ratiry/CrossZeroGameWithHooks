@@ -1,9 +1,9 @@
 
-import { ButtonWithIcon } from '../../common/Buttons/Buttons';
+import { ButtonWithIcon } from '../../common/buttons/Buttons';
 import classes from './NotFound.module.scss';
 import { useNavigate } from 'react-router-dom';
-import { H1 } from '../../common/Typography/Hs&P';
-import Container from '../../common/Typography/Container/Container';
+import { H1 } from '../../common/Typography/Typography';
+import Container from '../../common/layout/Container';
 let NotFound=(props)=>{
   let navigate=useNavigate();
   let onClick=()=>{

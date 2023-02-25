@@ -1,6 +1,6 @@
 
 import classes from './StatsIten.module.scss';
-import { P } from '../../../common/Typography/Hs&P';
+import { P } from '../../../common/Typography/Typography';
 let StatsItem=(props)=>{
   return(
     <div className={classes.Item}>

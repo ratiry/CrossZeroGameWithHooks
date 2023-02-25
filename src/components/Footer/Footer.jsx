@@ -1,5 +1,5 @@
 import classes from './Footer.module.scss';
-import Container from './../common/Typography/Container/Container';
+import Container from '../common/layout/Container';
 let Footer=(props)=>{
   return(
     <footer>

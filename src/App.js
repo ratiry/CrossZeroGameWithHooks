@@ -12,7 +12,7 @@ import ZerosCellPick from './Helpers/ZerosCellPick';
 import markSpaceWithZero from './Helpers/MarSpaceWithZero';
 import useLocalStorage from './Helpers/Hooks/useLocalStorage';
 import Statistics from './components/Content/Statistics/Statistics';
-import Container from './components/common/Typography/Container/Container';
+import Container from './components/common/layout/Container';
 
 function App() {
   const ammountOfVictories='ammountOfVictories';
