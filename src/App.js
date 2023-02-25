@@ -10,6 +10,10 @@ import useLocalStorage from './Helpers/Hooks/useLocalStorage';
 import Statistics from './components/Content/Statistics/Statistics';
 import Container from './components/common/layout/Container';
 
+export const GamePageUrl = '/Game';
+export const StatisticsPageUrl = '/Statistics';
+export const ResultsPageUrl = '/Results';
+
 function App() {
   let [Victories,setVictories]=useLocalStorage('amountOfVictories', 0);
   let [Defeats,setDefeats]=useLocalStorage('amountOfDefeats', 0);
@@ -33,10 +37,10 @@ function App() {
             <Container>
               <Routes>
                 <Route path={'/'} element={<Welcome/>} />
-                <Route path={'/Game' } element={<Game addVictory={addVictory} addDefeat={addDefeat} addTie={addTie}/>}/>
-                <Route path={'/Results'} element={<Results />}/>
+                <Route path={GamePageUrl} element={<Game addVictory={addVictory} addDefeat={addDefeat} addTie={addTie}/>}/>
+                <Route path={ResultsPageUrl} element={<Results />}/>
                 <Route path={'*'} element={<NotFound/>} />
-                <Route path='/Statistics' element={<Statistics setVictories={setVictories} setDefeats={setDefeats} setTies={setTies} Victories={Victories} Defeats={Defeats} Ties={Ties}/>}/>
+                <Route path={StatisticsPageUrl} element={<Statistics setVictories={setVictories} setDefeats={setDefeats} setTies={setTies} Victories={Victories} Defeats={Defeats} Ties={Ties}/>}/>
               </Routes>
             </Container>
           </div>
