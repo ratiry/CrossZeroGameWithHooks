@@ -26,7 +26,6 @@ const Init = {
     winning_consequence:null,
     direction:null
   },
-  
 }
 
 const setResult=(tempResult)=>({
