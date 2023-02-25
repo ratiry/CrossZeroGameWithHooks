@@ -1,5 +1,4 @@
-
-let NotOnOneRowRightDiagonal=(cells,occuppied_Cells,index,Case)=>{
+const NotOnOneRowRightDiagonal=(cells,occuppied_Cells,index,Case)=>{
   if(!Case){
     let rowsArray=[Math.floor(cells[occuppied_Cells[index].id].id/3),Math.floor(cells[occuppied_Cells[index].id+3-1].id/3),Math.floor(cells[occuppied_Cells[index].id+2*(3-1)].id/3)];
     let NotOnOneRow=true;

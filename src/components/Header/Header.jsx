@@ -1,13 +1,14 @@
 import classes from './Header.module.scss';
-import logo from './../../images/Tic-Tac-toe.png';
 import Container from '../common/layout/Container';
 import {P} from '../common/Typography/Typography';
 import { useNavigate } from 'react-router-dom';
-let Header=(props)=>{
-  let navigate=useNavigate()
-  let onClick=()=>{
+
+const Header=(props)=>{
+  const navigate=useNavigate()
+  const onClick=()=>{
     navigate('/');
   }
+  
   return(
     <header className={classes.header}>
     <Container>
@@ -19,4 +20,5 @@ let Header=(props)=>{
   </header>
   )
 }
+
 export default Header;

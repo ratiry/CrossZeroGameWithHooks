@@ -1,5 +1,4 @@
-
-let markSpaceWithZero=(id,upDateCells,updateOccupiedCells)=>{
+const markSpaceWithZero=(id,upDateCells,updateOccupiedCells)=>{
   upDateCells(Cells=>
     Cells.map((s)=>{
       if(s.id==id ){

@@ -1,7 +1,8 @@
 
-import classes from './StatsIten.module.scss';
+import classes from './StatsItem.module.scss';
 import { P } from '../../../common/Typography/Typography';
-let StatsItem=(props)=>{
+
+const StatsItem=(props)=>{
   return(
     <div className={classes.Item}>
       <div className={classes.number}>
@@ -16,4 +17,5 @@ let StatsItem=(props)=>{
     </div>
   )
 }
+
 export default StatsItem;

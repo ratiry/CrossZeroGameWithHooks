@@ -1,5 +1,4 @@
-
-let CheckOccupiedCell=(id,object)=>{
+const CheckOccupiedCell=(id,object)=>{
   let IsOccupied=false;
   for(let ii=0;ii<Object.values(object).length;ii++){
     for(let i=0;i<Object.values(object)[ii].length;i++){

@@ -1,19 +1,21 @@
 import { ButtonWithIcon, ButtonWithText } from "../../common/buttons/Buttons";
-import Container from "../../common/layout/Container";
 import { H1 } from "../../common/Typography/Typography";
 import classes from './Statistics.module.scss';
 import StatsItem from "./StatsItem/StatsItem";
 import { useNavigate } from 'react-router-dom';
-let Statistics=(props)=>{
-  let navigate=useNavigate();
-let ToHomeClick=()=>{
-  navigate('/')
-}
-let onResetClick=()=>{
-  props.setVictories(0);
-  props.setDefeats(0);
-  props.setTies(0);
-}
+
+const Statistics=(props)=>{
+  const navigate=useNavigate();
+  const ToHomeClick=()=>{
+    navigate('/')
+  }
+
+  const onResetClick=()=>{
+    props.setVictories(0);
+    props.setDefeats(0);
+    props.setTies(0);
+  }
+
   return(
     <>
       <H1> Stats</H1>
@@ -29,4 +31,5 @@ let onResetClick=()=>{
     </>
   )
 }
+
 export default Statistics;

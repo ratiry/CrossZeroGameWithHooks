@@ -1,5 +1,6 @@
 import CheckOccupiedCell from "./CheckOccupiedCell";
-let markSpaceWithCross=(id,occupiedCells,upDateCells,updateOccupiedCells)=>{
+
+const markSpaceWithCross=(id,occupiedCells,upDateCells,updateOccupiedCells)=>{
   let WasCellBefore=CheckOccupiedCell(id,occupiedCells);
   if(!WasCellBefore){
     upDateCells(Cells=>

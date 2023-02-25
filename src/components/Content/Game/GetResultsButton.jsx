@@ -1,7 +1,8 @@
 import classes from './Game.module.scss';
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-let GetResultsButton=(props)=>{
+
+const GetResultsButton=(props)=>{
   let [shouldNavigate,setShouldNavigate]=useState(false);
   if(shouldNavigate){
     return <Navigate to='/Results'/>
@@ -12,4 +13,5 @@ let GetResultsButton=(props)=>{
     </button>
   )
 }
+
 export default GetResultsButton;

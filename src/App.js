@@ -4,33 +4,27 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Game from './components/Content/Game/Game';
 import Welcome from './components/Content/Welcome/Welcome';
-import { useReducer, useState, useEffect } from 'react';
 import Results from './components/Content/Results/Results';
 import NotFound from './components/Content/NotFound/NotFound';
-import CheckForVictory from './Helpers/CheckForVictory';
-import ZerosCellPick from './Helpers/ZerosCellPick';
-import markSpaceWithZero from './Helpers/MarSpaceWithZero';
 import useLocalStorage from './Helpers/Hooks/useLocalStorage';
 import Statistics from './components/Content/Statistics/Statistics';
 import Container from './components/common/layout/Container';
 
 function App() {
-  const ammountOfVictories='ammountOfVictories';
-  const ammountOfDefeats='ammountOfDefeats';
-  const ammountOfTies='ammountOfTies';
-  let [Victories,setVictories]=useLocalStorage(ammountOfVictories,0);
-  let [Defeats,setDefeats]=useLocalStorage(ammountOfDefeats,0);
-  let [Ties,setTies]=useLocalStorage(ammountOfTies,0);
-  let addVictory=()=>{
+  let [Victories,setVictories]=useLocalStorage('amountOfVictories', 0);
+  let [Defeats,setDefeats]=useLocalStorage('amountOfDefeats', 0);
+  let [Ties,setTies]=useLocalStorage('amountOfTies', 0);
+
+  const addVictory=()=>{
     setVictories(Victories=>Victories+1);
   }
-  let addDefeat=()=>{
+  const addDefeat=()=>{
     setDefeats(Defeats=>Defeats+1);
   }
-  let addTie=()=>{
+  const addTie=()=>{
     setTies(Ties=>Ties+1);
   }
-  console.log(Victories);
+  
   return (
     <BrowserRouter>
         <div className={classes.App}>

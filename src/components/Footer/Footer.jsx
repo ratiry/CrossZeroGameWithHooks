@@ -1,6 +1,7 @@
 import classes from './Footer.module.scss';
 import Container from '../common/layout/Container';
-let Footer=(props)=>{
+
+const Footer=(props)=>{
   return(
     <footer>
      < Container>
@@ -11,4 +12,5 @@ let Footer=(props)=>{
     </footer>
   )
 }
+
 export default Footer;
