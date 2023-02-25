@@ -5,6 +5,7 @@ import { H1, P } from '../../common/Typography/Typography';
 import { GamePageUrl } from '../../../App'
 
 const Welcome=()=>{
+  
     const navigate=useNavigate();
   
     return(
