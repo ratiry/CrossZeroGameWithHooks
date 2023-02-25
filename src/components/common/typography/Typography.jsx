@@ -1,16 +1,19 @@
 
-import classes from './Hs&P.module.scss';
-export let H1=(props)=>{
+import classes from './Typography.module.scss';
+
+export const H1=(props)=>{
   return(
     <h1>{props.children}</h1>
   )
 }
-export let H2=(props)=>{
+
+export const H2=(props)=>{
   return(
     <h2>{props.children}</h2>
   )
 }
-export let P=(props)=>{
+
+export const P=(props)=>{
   switch(props.size){
     case 'large':
       return(

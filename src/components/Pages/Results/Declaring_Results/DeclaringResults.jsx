@@ -1,8 +1,9 @@
 import classes from './DeclaringResults.module.scss';
-import { H2 } from '../../../common/Typography/Hs&P';
-let DeclaringResults=(props)=>{
+import { H2 } from '../../../common/typography/Typography';
+
+const DeclaringResults=(props)=>{
   let Case=0;
-  let Cases=[
+  const Cases=[
     {result:'TIE',img:'https://i.imgflip.com/bero1.jpg?a464712'},
     {result:'victory',img:'https://media.makeameme.org/created/victory-5bc4da.jpg'},
     {result:'defeat',img:'https://media.makeameme.org/created/admit-your.jpg'}
@@ -19,4 +20,5 @@ let DeclaringResults=(props)=>{
     </div>
   )
 }
+
 export default DeclaringResults;

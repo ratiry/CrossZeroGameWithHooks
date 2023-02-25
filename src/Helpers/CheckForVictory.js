@@ -1,6 +1,7 @@
 
 import NotOnOneRowRightDiagonal from "./NotOnOneRowRightDiagonal";
-let conditipnsFunction=(index,cells,occuppied_Cells,player,rows)=>{
+
+const conditionsFunction=(index,cells,occuppied_Cells,player,rows)=>{
   let result = null;
   let winning_consequence=[];
   let direction = null;
@@ -9,9 +10,6 @@ let conditipnsFunction=(index,cells,occuppied_Cells,player,rows)=>{
   let definedLeftDiagonalCondition=cells[occuppied_Cells[index].id +rows+1] !== undefined & cells[occuppied_Cells[index].id +2*(rows+1)]!==undefined;
   let definedRightDiagonal=cells[occuppied_Cells[index].id +rows-1] !== undefined & cells[occuppied_Cells[index].id +2*(rows-1)]!==undefined;
 
-
-
-  
   if(cells[occuppied_Cells[index].id].whose===player){
     if(definedHorizontalCondition){
       let onOneRowHorizontalCondition=Math.floor(cells[occuppied_Cells[index].id].id/rows) ===Math.floor(cells[occuppied_Cells[index].id+1].id/rows) & Math.floor(cells[occuppied_Cells[index].id].id/rows ===Math.floor(cells[occuppied_Cells[index].id+2].id/rows));
@@ -54,17 +52,18 @@ let conditipnsFunction=(index,cells,occuppied_Cells,player,rows)=>{
   }
   return {player:result,winning_consequence:winning_consequence,direction:direction};
 }
- let CheckForVictory=(cells,occuppied_Cells,rows)=>{
+
+const CheckForVictory=(cells,occuppied_Cells,rows)=>{
   let result = null;
   for(let i=0;i<occuppied_Cells.cross.length;i++){
-    result =  conditipnsFunction(i,cells,occuppied_Cells.cross,'cross',rows);
+    result =  conditionsFunction(i,cells,occuppied_Cells.cross,'cross',rows);
    if(result.player){
       break;
    }
   }
   if(result.player===null){
     for(let i=0;i<occuppied_Cells.zero.length;i++){
-      result =  conditipnsFunction(i,cells,occuppied_Cells.zero,'zero',rows);
+      result =  conditionsFunction(i,cells,occuppied_Cells.zero,'zero',rows);
      if(result.player){
         break;
      }

@@ -1,10 +1,12 @@
 
 import CheckOccupiedCell from './CheckOccupiedCell';
 import NotOnOneRowRightDiagonal from './NotOnOneRowRightDiagonal';
+
 function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
-let ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
+
+const ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
   let id=null;
   for(let i=0;i<cells.length;i++){
     let definedHorizontalCondition=cells[i +2] !==undefined & cells[i +1] !==undefined;;
@@ -106,7 +108,8 @@ let ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
   }
   return id;
 }
-let ZerosCellPick=(cells,occuppied_Cells,shouldChangeSymbols)=>{
+
+const ZerosCellPick=(cells,occuppied_Cells,shouldChangeSymbols)=>{
   let IsApproved=false;
   let id=null;
   if(shouldChangeSymbols){
@@ -124,4 +127,5 @@ let ZerosCellPick=(cells,occuppied_Cells,shouldChangeSymbols)=>{
   }
   return id;
 }
+
 export default ZerosCellPick;
