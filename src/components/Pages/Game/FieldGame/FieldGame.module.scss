@@ -8,6 +8,9 @@
     border:5px solid black;
     display:flex;
     position:relative;
+    img,svg{
+      width:100%;
+    }
     .line{
       position: absolute;
       width: 100%;
