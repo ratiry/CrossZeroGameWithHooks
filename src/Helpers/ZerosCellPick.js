@@ -39,16 +39,16 @@ const SelectIdToContradictCross=(cells,occuppied_Cells)=>{
         if(cells[i].whose =='cross'){
           if(cells[i+1].whose=='cross' & cells[i+2].whose==null){
             let id= cells[i+2].id;
-            Options.push(makeOption(id,3));
+            Options.push(makeOption(id,2));
           }
           if(cells[i+1].whose==null & cells[i+2].whose=='cross'){
             let id=cells[i+1].id;
-            Options.push(makeOption(id,3));
+            Options.push(makeOption(id,2));
           }
         }else if(cells[i].whose==null){
           if(cells[i+1].whose=='cross' & cells[i+2].whose=='cross'){
             let id=cells[i].id;
-            Options.push(makeOption(id,3));
+            Options.push(makeOption(id,2));
           }
         }
       }
@@ -57,16 +57,16 @@ const SelectIdToContradictCross=(cells,occuppied_Cells)=>{
       if(cells[i].whose=='cross'){
         if(cells[i+3].whose=='cross' & cells[i+6].whose==null){
           let id=cells[i+6].id;
-          Options.push(makeOption(id,3));
+          Options.push(makeOption(id,2));
         }
         if(cells[i+6].whose=='cross' & cells[i+3].whose==null){
           let  id=cells[i+3].id;
-          Options.push(makeOption(id,3));
+          Options.push(makeOption(id,2));
         }
       }else if(cells[i].whose ==null){
         if(cells[i+3].whose =='cross' & cells[i+6].whose=='cross'){
           let id=cells[i].id;
-          Options.push(makeOption(id,3));
+          Options.push(makeOption(id,2));
         }
       }
     }
@@ -75,16 +75,16 @@ const SelectIdToContradictCross=(cells,occuppied_Cells)=>{
       if(cells[i].whose =='cross'){
         if(cells[i+3+1].whose =='cross' & cells[i+2*(3+1)].whose ==null){
           let id=cells[i+2*(3+1)].id;
-          Options.push(makeOption(id,3));
+          Options.push(makeOption(id,2));
         }
         if(cells[i+3+1].whose ==null & cells[i+2*(3+1)].whose =='cross'){
           let id=cells[i+3+1].id;
-          Options.push(makeOption(id,3));
+          Options.push(makeOption(id,2));
         }
       }else if(cells[i].whose ==null){
         if(cells[i+3+1].whose =='cross' & cells[i+2*(3+1)].whose=='cross' ){
           let id=cells[i].id;
-          Options.push(makeOption(id,3));
+          Options.push(makeOption(id,2));
         }
       }
     }
@@ -94,21 +94,23 @@ const SelectIdToContradictCross=(cells,occuppied_Cells)=>{
         if(cells[i].whose =='cross'){
           if(cells[i+3-1].whose=='cross' & cells[i+2*(3-1)].whose==null){
             let id=cells[i+2*(3-1)].id;
-            Options.push(makeOption(id,3));
+            Options.push(makeOption(id,2));
           }
           if(cells[i+3-1].whose==null & cells[i+2*(3-1)].whose=='cross'){
             let  id=cells[i+3-1].id;
-            Options.push(makeOption(id,3));
+            Options.push(makeOption(id,2));
           }
         }else if(cells[i].whose ==null){
           if(cells[i+3-1].whose =='cross' & cells[i+2*(3-1)].whose=='cross'){
+            debugger;
             let  id=cells[i].id;
-             Options.push(makeOption(id,3));
+             Options.push(makeOption(id,2));
           }
         }     
       }
     }
   }
+  debugger;
   return Options;
 }
 const ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
@@ -124,11 +126,11 @@ const ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
         if(cells[i].whose =='zero'){
           if(cells[i+1].whose=='zero' & cells[i+2].whose==null){
             let id= cells[i+2].id;
-            Options.push(makeOption(id,2));
+            Options.push(makeOption(id,3));
           }
           if(cells[i+1].whose==null & cells[i+2].whose=='zero'){
             let id=cells[i+1].id;
-            Options.push(makeOption(id,2));
+            Options.push(makeOption(id,3));
           }
           if(cells[i+1].whose==null & cells[i+2].whose==null){
             let id= cells[i+1].id;
@@ -138,7 +140,7 @@ const ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
           if(cells[i+1].whose!='cross' & cells[i+2].whose!='cross' &   (cells[i+1].whose =='zero' || cells[i+2].whose=='zero')){
             let id=cells[i].id;
             if(cells[i+1].whose =='zero' & cells[i+2].whose=='zero'){
-              Options.push(makeOption(id,2));
+              Options.push(makeOption(id,3));
             }else{
               Options.push(makeOption(id,1));
             }
@@ -151,11 +153,11 @@ const ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
       if(cells[i].whose=='zero'){
         if(cells[i+3].whose=='zero' & cells[i+6].whose==null){
           let id=cells[i+6].id;
-          Options.push(makeOption(id,2));
+          Options.push(makeOption(id,3));
         }
         if(cells[i+6].whose=='zero' & cells[i+3].whose==null){
           let  id=cells[i+3].id;
-          Options.push(makeOption(id,2));
+          Options.push(makeOption(id,3));
         }
         if(cells[i+6].whose==null & cells[i+3].whose==null){
           let id=cells[i+3].id;
@@ -165,7 +167,7 @@ const ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
         if(cells[i+3].whose !='cross' & cells[i+6].whose!='cross' & (cells[i+3].whose =='zero' || cells[i+6].whose=='zero')){
           let id=cells[i].id;
           if(cells[i+3].whose =='zero' & cells[i+6].whose=='zero'){
-            Options.push(makeOption(id,2));
+            Options.push(makeOption(id,3));
           }else{
             Options.push(makeOption(id,1));
           }
@@ -182,17 +184,17 @@ const ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
         }
         if(cells[i+3+1].whose =='zero' & cells[i+2*(3+1)].whose ==null){
           let id=cells[i+2*(3+1)].id;
-          Options.push(makeOption(id,2));
+          Options.push(makeOption(id,3));
         }
         if(cells[i+3+1].whose ==null & cells[i+2*(3+1)].whose =='zero'){
           let id=cells[i+3+1].id;
-          Options.push(makeOption(id,2));
+          Options.push(makeOption(id,3));
         }
       }else if(cells[i].whose ==null){
         if(cells[i+3+1].whose !='cross' & cells[i+2*(3+1)].whose!='cross' & (cells[i+3+1].whose =='zero' || cells[i+2*(3+1)].whose=='zero')){
           let id=cells[i].id;
           if(cells[i+3+1].whose =='zero' & cells[i+2*(3+1)].whose=='zero'){
-            Options.push(makeOption(id,2));
+            Options.push(makeOption(id,3));
           }else{
             Options.push(makeOption(id,1));
           }
@@ -205,11 +207,11 @@ const ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
         if(cells[i].whose =='zero'){
           if(cells[i+3-1].whose=='zero' & cells[i+2*(3-1)].whose==null){
             let id=cells[i+2*(3-1)].id;
-            Options.push(makeOption(id,2));
+            Options.push(makeOption(id,3));
           }
           if(cells[i+3-1].whose==null & cells[i+2*(3-1)].whose=='zero'){
             let  id=cells[i+3-1].id;
-            Options.push(makeOption(id,2));
+            Options.push(makeOption(id,3));
           }
           if(cells[i+3-1].whose==null & cells[i+2*(3-1)].whose==null){
             let  id=cells[i+3-1].id;
@@ -219,7 +221,7 @@ const ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
           if(cells[i+3-1].whose !='cross' & cells[i+2*(3-1)].whose!='cross' & (cells[i+3-1].whose =='zero' || cells[i+2*(3-1)].whose=='zero')){
             let  id=cells[i].id;
             if(cells[i+3-1].whose =='zero' & cells[i+2*(3-1)].whose=='zero'){
-              Options.push(makeOption(id,2));
+              Options.push(makeOption(id,3));
             }else {
               Options.push(makeOption(id,1));
             }
@@ -238,6 +240,7 @@ const ZerosCellPick=(cells,occuppied_Cells,shouldChangeSymbols)=>{
    let Options=  ZeroCellBasedOnPrevios(cells,occuppied_Cells);
    let OptionsToContradictCross=SelectIdToContradictCross(cells,occuppied_Cells);
    if(OptionsToContradictCross.length>0){
+    debugger;
     Options= Options.concat(OptionsToContradictCross);
    }
    if(Options.length>0){
