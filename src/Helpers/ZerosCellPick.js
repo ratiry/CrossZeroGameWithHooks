@@ -102,7 +102,6 @@ const SelectIdToContradictCross=(cells,occuppied_Cells)=>{
           }
         }else if(cells[i].whose ==null){
           if(cells[i+3-1].whose =='cross' & cells[i+2*(3-1)].whose=='cross'){
-            debugger;
             let  id=cells[i].id;
              Options.push(makeOption(id,2));
           }
@@ -110,7 +109,6 @@ const SelectIdToContradictCross=(cells,occuppied_Cells)=>{
       }
     }
   }
-  debugger;
   return Options;
 }
 const ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
@@ -240,7 +238,6 @@ const ZerosCellPick=(cells,occuppied_Cells,shouldChangeSymbols)=>{
    let Options=  ZeroCellBasedOnPrevios(cells,occuppied_Cells);
    let OptionsToContradictCross=SelectIdToContradictCross(cells,occuppied_Cells);
    if(OptionsToContradictCross.length>0){
-    debugger;
     Options= Options.concat(OptionsToContradictCross);
    }
    if(Options.length>0){
