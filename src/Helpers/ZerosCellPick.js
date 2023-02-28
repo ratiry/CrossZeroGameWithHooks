@@ -21,7 +21,6 @@ const SelectIdWithRandom=(cells,occuppied_Cells)=>{
     let resultOfCorners=CheckForCornerCell(id)
     if(occuppied_Cells.zero.length==0){
       if(!result & resultOfCorners){
-        debugger;
         IsApproved=true;
       }
     }else if(!result){

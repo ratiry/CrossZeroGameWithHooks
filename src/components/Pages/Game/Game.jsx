@@ -5,7 +5,8 @@ import ZerosCellPick from '../../../Helpers/ZerosCellPick';
 import markSpaceWithZero from '../../../Helpers/MarSpaceWithZero';
 import { ButtonWithText } from '../../common/buttons/Buttons';
 import { useNavigate } from 'react-router-dom';
-import { H1 } from '../../common/typography/Typography';
+import { H1 ,P} from '../../common/typography/Typography';
+import classes from './Game.module.scss';
 
 const Init = {
   shouldChangeSymbols:false,
@@ -26,6 +27,7 @@ const Init = {
     winning_consequence:null,
     direction:null
   },
+  prevousMove:null
 }
 
 const setResult=(tempResult)=>({
@@ -38,8 +40,7 @@ const Game=(props)=>{
   let navigate=useNavigate();
   let [shouldChangeSymbols,setShouldChangeSymbols]=useState(Init.shouldChangeSymbols);
   let [IsMoveOfZero,setIsMoveOfZero] = useState(Init.IsMoveOfZero);
-  let [TouchZeroCount,setTouchZeroCount]=useState(Init.TouchZeroCount);
-  let [shouldCheckForVictory,setShouldCheckForVictory]=useState(Init.shouldChangeSymbols);
+  let [shouldCheckForVictory,setShouldCheckForVictory]=useState(Init.shouldCheckForVictory);
   let [cells,upDateCells]=useState(Init.cells)
   let [occupiedCells,updateOccupiedCells]=useState(Init.occupiedCells);
   let [result,upDateResult]=useState(Init.result)
@@ -74,13 +75,7 @@ const Game=(props)=>{
     }
   },[IsMoveOfZero])
 
-  useEffect(()=>{
-    console.log(shouldChangeSymbols);
-    if(TouchZeroCount>3){
-      setShouldChangeSymbols(true);
-     setTouchZeroCount(0);
-    }
-  },[TouchZeroCount])
+
 
   useEffect(()=>{
     if(result.player!=null){
@@ -108,7 +103,10 @@ const Game=(props)=>{
   return(
     <>
       <H1>Tic Tac Toe</H1>
-      <GameField  shouldChangeSymbols={shouldChangeSymbols} setTouchZeroCount={setTouchZeroCount} cells={cells} occupiedCells={occupiedCells} upDateCells={upDateCells} updateOccupiedCells={updateOccupiedCells} result={result} />
+      <GameField  shouldChangeSymbols={shouldChangeSymbols} cells={cells} occupiedCells={occupiedCells} upDateCells={upDateCells} updateOccupiedCells={updateOccupiedCells} result={result} />
+      <div className={classes.TurboButtonContainer}>
+        {shouldChangeSymbols ? <P size='large'>Turbo Regime is on</P>:<ButtonWithText onClick={()=>{setShouldChangeSymbols(true)}}><p>Turbo Regime</p></ButtonWithText>}
+      </div>
       {result.player ? <ButtonWithText onClick={GoToResultsPage}><p>Get Results</p></ButtonWithText> : null}
     </>
   )

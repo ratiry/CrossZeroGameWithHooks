@@ -6,9 +6,6 @@ let Space=(props)=>{
   
   let onCkickFunction=()=>{
     if(props.result.player ===null){
-      if(props.whose==='zero'){
-        props.setTouchZeroCount(setTouchZeroCount=> setTouchZeroCount+1);
-      }
       props.markSpaceWithCross(props.id,props.upDateCells,props.updateOccupiedCells);
     }
   }
