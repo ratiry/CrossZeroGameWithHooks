@@ -5,7 +5,31 @@ import NotOnOneRowRightDiagonal from './NotOnOneRowRightDiagonal';
 function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
-
+const CheckForCornerCell=(id)=>{
+  let result=false;
+  if(id==0 ||id==2 || id==6 ||id==8 ){
+    result=true;
+  }
+  return result;
+}
+const SelectIdWithRandom=(cells,occuppied_Cells)=>{
+  let IsApproved=false;
+  let id=null;
+  while(!IsApproved){
+    id=getRandomArbitrary(0,cells.length-1);
+    let result=CheckOccupiedCell(id,occuppied_Cells);
+    let resultOfCorners=CheckForCornerCell(id)
+    if(occuppied_Cells.zero.length==0){
+      if(!result & resultOfCorners){
+        debugger;
+        IsApproved=true;
+      }
+    }else if(!result){
+      IsApproved=true;
+    }
+  }
+  return id;
+}
 const SelectIdWithMaxPriority=(Options)=>{
   let priority=0;
   let id=-1;
@@ -232,7 +256,6 @@ const ZeroCellBasedOnPrevios=(cells,occuppied_Cells)=>{
 }
 
 const ZerosCellPick=(cells,occuppied_Cells,shouldChangeSymbols)=>{
-  let IsApproved=false;
   let id=null;
   if(shouldChangeSymbols){
    let Options=  ZeroCellBasedOnPrevios(cells,occuppied_Cells);
@@ -247,13 +270,7 @@ const ZerosCellPick=(cells,occuppied_Cells,shouldChangeSymbols)=>{
     }
    }
   }
-  while(!IsApproved){
-    id=getRandomArbitrary(0,cells.length-1);
-    let result=CheckOccupiedCell(id,occuppied_Cells);
-    if(!result){
-      IsApproved=true;
-    }
-  }
+  id=SelectIdWithRandom(cells,occuppied_Cells);
   return id;
 }
 
